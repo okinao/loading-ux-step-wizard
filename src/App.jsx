@@ -5,9 +5,9 @@ const StepWizard = ({ currentStep }) => {
 
   return (
     <div className="relative flex justify-between w-full max-w-md mx-auto">
-      {/* 背景の線 */}
+      
       <div className="absolute top-1/2 w-full h-1 bg-slate-200 -z-10 -translate-y-1/2" />
-      {/* 進捗バー */}
+      
       <div
         className="absolute top-1/2 h-1 bg-blue-600 -z-10 -translate-y-1/2 transition-all duration-300"
         style={{ width: `${((currentStep - 1) / (steps.length - 1)) * 100}%` }}
@@ -87,7 +87,7 @@ const StepContent = ({ step, onNext, onBack }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
           </div>
-          <p className="text-slate-600">登録完了メールを送信しました。</p>
+          <p className="text-slate-600">確認メールを送信しました。</p>
         </div>
       ),
     },
@@ -148,26 +148,21 @@ export default function App() {
   return (
     <div className="min-h-screen bg-slate-50 p-8">
       <div className="max-w-2xl mx-auto space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold text-slate-900 mb-2">ステップウィザード デモ</h1>
-          <p className="text-slate-600 mb-4">
-            複数段階の処理で全体像と現在地を可視化
-          </p>
-          {currentStep === 3 && (
-            <button
-              onClick={handleReset}
-              className="text-blue-600 hover:underline text-sm"
-            >
-              最初からやり直す
-            </button>
-          )}
-        </div>
-
         <StepWizard currentStep={currentStep} />
 
         <StepContent step={currentStep} onNext={handleNext} onBack={handleBack} />
 
-        
+        {currentStep === 3 && (
+          <div className="text-center">
+            <button
+              onClick={handleReset}
+              className="px-6 py-2 text-blue-600 hover:text-blue-700 transition-colors"
+            >
+              最初からやり直す
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
