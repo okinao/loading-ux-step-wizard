@@ -167,24 +167,7 @@ export default function App() {
 
         <StepContent step={currentStep} onNext={handleNext} onBack={handleBack} />
 
-        <div className="bg-white rounded-lg p-6 shadow-sm">
-          <h2 className="font-bold text-lg mb-2">実装のポイント</h2>
-          <ul className="space-y-2 text-slate-700">
-            <li className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">•</span>
-              <span>ステップ数は3〜5個が理想的（それ以上は離脱しやすい）</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">•</span>
-              <span>進捗バーにtransitionを付けてステップ間の移動をスムーズに</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <span className="text-blue-600 font-bold">•</span>
-              <span>「戻る」ボタンで入力内容を修正できるようにする</span>
-            </li>
-          </ul>
-        </div>
-      </div>
+        
     </div>
   );
 }
